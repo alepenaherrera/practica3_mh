@@ -51,11 +51,7 @@ ResultMHInt SimulatedAnnealing::optimize(Problem<int> &problem,
             idx++;
 
             int cur = s[i];
-            // if (clusterSize[cur] <= 1) continue;
-            if (clusterSize[cur] <= 1) {
-                nVecinos++;
-                continue;   
-            }
+            if (clusterSize[cur] <= 1) continue;
 
             int offset = Random::get<int>(1, k - 1);
             int tgt    = (cur + offset) % k;
@@ -78,7 +74,7 @@ ResultMHInt SimulatedAnnealing::optimize(Problem<int> &problem,
 
         T = T / (1.0 + beta * T);
         if (T < Tf) T = Tf;
-        
+
     } while (numEval < maxevals && nExitos != 0);
 
     return ResultMHInt(bestSol, bestFit, (unsigned)numEval);

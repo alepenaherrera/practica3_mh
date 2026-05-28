@@ -5,7 +5,7 @@ using namespace std;
 
 ResultMHInt LocalSearch::optimize(ProblemInt &problem,
                                    const tSolution<int> &current,
-                                   tFitness fitness,
+                                   tFitness initFitness,
                                    int maxevals) {
     assert(maxevals > 0);
     PARProblem &par = dynamic_cast<PARProblem&>(problem);
@@ -13,7 +13,7 @@ ResultMHInt LocalSearch::optimize(ProblemInt &problem,
     int k = par.getK();
 
     tSolution<int> solution = current;
-    tFitness fitness = fitness;
+    tFitness fitness = initFitness;
     int evals = 0;
 
     // Cluster sizes: to make empty-checks O(1)
