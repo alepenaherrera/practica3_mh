@@ -23,5 +23,5 @@ public:
     virtual ~LocalSearch() {}
 
     // Core: BL from a given solution
-    ResultMHInt optimize(Problem<int> &problem, const tSolution<int> &current, tFitness fitness, int maxevals);
+    ResultMHInt optimize(Problem<int> &problem, const tSolution<int> &current, tFitness fitness, int maxevals) override;
 };

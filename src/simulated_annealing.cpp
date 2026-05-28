@@ -78,9 +78,8 @@ ResultMHInt SimulatedAnnealing::optimize(Problem<int> &problem,
 
         T = T / (1.0 + beta * T);
         if (T < Tf) T = Tf;
-
-    // } while (numEval < maxevals && nExitos != 0);
-    } while (numEval < maxevals && T > Tf);
+        
+    } while (numEval < maxevals && nExitos != 0);
 
     return ResultMHInt(bestSol, bestFit, (unsigned)numEval);
 }

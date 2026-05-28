@@ -23,5 +23,5 @@ public:
     ResultMHInt optimize(ProblemInt &problem,
                          const tSolution<int> &current,
                          tFitness fitness,
-                         int maxevals);
+                         int maxevals) override;
 };
