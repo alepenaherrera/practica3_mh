@@ -116,10 +116,10 @@ inline void mutate(tSolution<int> &sol, int k) {
  * @param ct Crossover type (UNIFORM or FIXED_SEGMENT).
  * @return A ResultMHInt containing the best solution found, its fitness, and the number of evaluations used.
  */
-class AGG {
+class AGG : public MH<int> {
 public:
     explicit AGG(CrossoverType ct);
-    ResultMHInt optimize(PARProblem &par, int maxevals);
+    ResultMHInt optimize(Problem<int> &par, int maxevals);
 
 private:
     CrossoverType crossType;
@@ -135,7 +135,7 @@ private:
 class AGE {
 public:
     explicit AGE(CrossoverType ct);
-    ResultMHInt optimize(PARProblem &par, int maxevals);
+    ResultMHInt optimize(Problem<int> &par, int maxevals);
 
 private:
     CrossoverType crossType;

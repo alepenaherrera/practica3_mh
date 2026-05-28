@@ -30,7 +30,9 @@ AGG::doCrossover(const tSolution<int> &p1, const tSolution<int> &p2) {
  * @param maxevals The maximum number of fitness evaluations allowed.
  * @return A ResultMHInt containing the best solution found, its fitness, and the number of evaluations used.
  */
-ResultMHInt AGG::optimize(PARProblem &par, int maxevals) {
+ResultMHInt AGG::optimize(Problem<int> &problem, int maxevals) {
+    assert(maxevals > 0);
+    PARProblem &par = dynamic_cast<PARProblem&>(problem);
     int k = par.getK();
     const int M  = 50; // Population size
     const double Pc = 0.8; // Crossover probability

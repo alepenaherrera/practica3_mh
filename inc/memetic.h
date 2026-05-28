@@ -85,7 +85,7 @@ bls(tSolution<int> S, tFitness bestfit, int maxevals, int epsilon,
 class AM {
 public:
     AM(CrossoverType ct, MemeticMode mode);
-    ResultMHInt optimize(PARProblem &par, int maxevals);
+    ResultMHInt optimize(Problem<int> &Problem, int maxevals);
 
 private:
     CrossoverType crossType;

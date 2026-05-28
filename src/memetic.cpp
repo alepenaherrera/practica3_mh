@@ -68,7 +68,9 @@ vector<int> AM::selectTargets(const vector<tFitness> &fits, int M) {
  * @param maxevals The maximum number of fitness evaluations allowed.
  * @return A ResultMHInt containing the best solution found, its fitness, and the number of evaluations used.
  */
-ResultMHInt AM::optimize(PARProblem &par, int maxevals) {
+ResultMHInt AM::optimize(Problem<int> &problem, int maxevals) {
+    assert(maxevals > 0);
+    PARProblem &par = dynamic_cast<PARProblem&>(problem);
     int k = par.getK();
     int n = par.getN();
     const int M = 50; // Population size
